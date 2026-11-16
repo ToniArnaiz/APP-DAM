@@ -1,7 +1,7 @@
 
 
 
-export function Viaje()  {
+export function Viaje_Main()  {
 
 
     return (
