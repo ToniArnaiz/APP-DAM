@@ -13,7 +13,7 @@ export function Viaje_Detail({viaje,navigate_to,delete_viaje}) {
                 {viaje.titulo}
             </button>
             <div>
-                <p>{/*fechas*/}</p>ç
+                <p>{/*fechas*/}</p>
                 <button
                     onClick={ delete_viaje }
                 >
