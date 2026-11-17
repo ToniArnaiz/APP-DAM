@@ -1,32 +1,33 @@
-import {rango_fechas} from "../utils/rango_fechas.js";
 
 
-export function Viaje_Detail({viaje,navigate_to,delete_viaje}) {
 
+export function Viaje_Detail()  {
 
 
     return (
         <>
-            <button
-                type="button"
-                onClick={ navigate_to }
-                className="btn-navigate"
-            >
-                {viaje.titulo}
-            </button>
-
-            <div className="container-info-viaje">
-
-                <div className={"info-dates"}>{rango_fechas(viaje)}</div>
-
-                <button
-                    type="button"
-                    onClick={ delete_viaje }
-                    className="btn-delete-viaje"
-                >
-                    X
+            <header>
+                <button>
+                    return
                 </button>
-            </div>
+
+                <div>
+                    {/*<h1>Titulo</h1>*/}
+                    {/*<h2>Fechas</h2>*/}
+                </div>
+            </header>
+
+            <body>
+                <div>
+                    {/* carrusel boton_action*/}
+                </div>
+                <div>
+                    <p>Resumen</p>
+                    {/* gastos*/}
+                    {/* siguinte actividad*/}
+                </div>
+            </body>
+
         </>
     )
 }
