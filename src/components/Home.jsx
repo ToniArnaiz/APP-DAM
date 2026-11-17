@@ -27,8 +27,12 @@ function Home() {
 
     return (
         <>
-            <header>
-                <div className={"username"}>Username</div>
+            <header className="home-header">
+
+                <div className={"username"}>
+                    Username
+                </div>
+
                 <img
                     src="src/assets/profile.png"
                     alt={"profile picture"}
@@ -37,14 +41,20 @@ function Home() {
 
             </header>
 
-            <main>
-                <h1>Els meus viatges</h1>
+            <main className="home-main">
+
+                <h1 className={"home-title"}>
+                    Els meus viatges
+                </h1>
+
                 <button
                     onClick={()=>setIsViaje_FormOpen(true)}
+                    className={"btn-add-travel"}
                 >
                     + Nou viatge
                 </button>
-                <div>
+
+                <div className={"home-container-viaje-detail"}>
                     {viajes.map(viaje => (
                         <Viaje_Detail
                             key={viaje.id}
@@ -54,8 +64,10 @@ function Home() {
                         />
                     ))}
                 </div>
+
             </main>
-            {isViaje_Form_open && <Viaje_Form add_viaje={add_viaje} setIsViaje_FormOpen = {setIsViaje_FormOpen}/>}
+
+            { isViaje_Form_open && <Viaje_Form add_viaje={add_viaje} setIsViaje_FormOpen = {setIsViaje_FormOpen}/>}
         </>
     )
 
