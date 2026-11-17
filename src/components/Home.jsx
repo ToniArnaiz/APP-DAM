@@ -1,7 +1,7 @@
 
 import {datos_viajes} from"./../data/viajes.js"
 import {useState} from "react";
-import {Viaje_Detail} from "./Viaje_Detail.jsx";
+import {Viaje_Card} from "./Viaje_Card.jsx";
 import Viaje_Form from "./Viaje_Form.jsx";
 
 function Home() {
@@ -56,7 +56,7 @@ function Home() {
 
                 <div className={"home-container-viaje-detail"}>
                     {viajes.map(viaje => (
-                        <Viaje_Detail
+                        <Viaje_Card
                             key={viaje.id}
                             viaje={viaje}
                             navigate_to={()=>navigate_to(viaje.id)}
