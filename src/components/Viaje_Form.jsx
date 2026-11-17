@@ -13,8 +13,8 @@ function Viaje_Form({add_viaje, setIsViaje_FormOpen}) {
     })
     return (
         <>
-            <form>
-                <label>
+            <form className={"form-add-viaje"}>
+                <label className={"form-input input-destino"}>
                     Destino
                     <input
                         value={viaje.destino}
@@ -23,7 +23,7 @@ function Viaje_Form({add_viaje, setIsViaje_FormOpen}) {
                     />
                 </label>
 
-                <label>
+                <label className={"form-input input-titulo"}>
                     Titulo
                     <input
                         value={viaje.titulo}
@@ -32,7 +32,7 @@ function Viaje_Form({add_viaje, setIsViaje_FormOpen}) {
                     />
                 </label>
 
-                <label>
+                <label className={"form-input input-budget"}>
                     Presupuesto
                     <input
                         type="number"
@@ -42,7 +42,7 @@ function Viaje_Form({add_viaje, setIsViaje_FormOpen}) {
                     />
                 </label>
 
-                <label>
+                <label className={"form-input input-start"}>
                     Fecha Inicio
                     <input
                         type="date"
@@ -52,7 +52,7 @@ function Viaje_Form({add_viaje, setIsViaje_FormOpen}) {
                     />
                 </label>
 
-                <label>
+                <label className={"form-input input-end"}>
                     Fecha Final
                     <input
                         type="date"
@@ -62,20 +62,26 @@ function Viaje_Form({add_viaje, setIsViaje_FormOpen}) {
                     />
                 </label>
 
-
             </form>
 
             <div>
+
                 <button
+                    type="button"
                     onClick={()=>setIsViaje_FormOpen(false)}
+                    className="btn btn-cancel"
                 >
                     cancelar
                 </button>
+
                 <button
+                    type="button"
                     onClick={() => add_viaje(viaje)}
+                    className="btn btn-crear"
                 >
                     crear
                 </button>
+
             </div>
         </>
     )
