@@ -28,6 +28,12 @@ function Home() {
     return (
         <>
             <header>
+                <div className={"username"}>Username</div>
+                <img
+                    src="src/assets/profile.png"
+                    alt={"profile picture"}
+                    className="profile-image"
+                />
 
             </header>
 
