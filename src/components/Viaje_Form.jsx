@@ -1,7 +1,7 @@
 import {useState} from "react";
 
 
-function Viaje_Form(add_viaje) {
+function Viaje_Form({add_viaje, setIsViaje_FormOpen}) {
 
     const [viaje, setViaje] = useState({
         id:-1,
@@ -66,9 +66,11 @@ function Viaje_Form(add_viaje) {
             </form>
 
             <div>
-                <buton>
+                <button
+                    onClick={()=>setIsViaje_FormOpen(false)}
+                >
                     cancelar
-                </buton>
+                </button>
                 <button
                     onClick={() => add_viaje(viaje)}
                 >
