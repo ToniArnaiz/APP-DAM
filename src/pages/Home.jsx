@@ -1,13 +1,10 @@
-
 import { datos_viajes } from "../data/viajes.js";
 import { useState } from "react";
 import { Viaje_Card } from "../components/Viaje_Card.jsx";
 import Viaje_Form from "../components/Viaje_Form.jsx";
 import profile from "../assets/profile.png";
 
-
 function Home() {
-
     const [viajes, setViajes] = useState(datos_viajes);
     const [isViaje_Form_open, setIsViaje_FormOpen] = useState(false);
 
@@ -28,36 +25,28 @@ function Home() {
     }
 
     return (
-        <>
-            <header className={styles.homeHeader}>
-
-                <div className={styles.username}>
-                    Username
-                </div>
-
-                <img
-                    src={profile}
-                    alt="profile picture"
-                    className={styles.profileImage}
-                />
-
+        <div className="app-shell">
+            <header className="home-header">
+                <span className="brand-name">Vianda<span className="brand-dot">.</span></span>
+                <img src={profile} alt="Imatge de perfil" className="profile-image" />
             </header>
 
-            <main className={styles.homeMain}>
-
-                <h1 className={styles.homeTitle}>
-                    Els meus viatges
-                </h1>
+            <main className="home-main">
+                <div className="home-heading">
+                    <p className="eyebrow">Organitza la teva pròxima aventura</p>
+                    <h1 className="home-title">Els meus viatges</h1>
+                </div>
 
                 <button
                     type="button"
                     onClick={() => setIsViaje_FormOpen(true)}
-                    className={styles.btnAddTravel}
+                    className="btn-add-travel"
                 >
-                    + Nou viatge
+                    <span className="btn-add-travel__plus" aria-hidden="true">+</span>
+                    Nou viatge
                 </button>
 
-                <div className={styles.homeContainerViajeDetail}>
+                <div className="home-container-viaje-detail" aria-label="Llista dels meus viatges">
                     {viajes.map(viaje => (
                         <Viaje_Card
                             key={viaje.id}
@@ -67,7 +56,6 @@ function Home() {
                         />
                     ))}
                 </div>
-
             </main>
 
             {isViaje_Form_open && (
@@ -76,7 +64,7 @@ function Home() {
                     setIsViaje_FormOpen={setIsViaje_FormOpen}
                 />
             )}
-        </>
+        </div>
     );
 }
 
