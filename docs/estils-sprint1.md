@@ -16,13 +16,19 @@ La guia d'arrencada explica que s'ha de copiar `css/estilos.css` de **la referè
 
 1. `npm install` i `npm run dev`; obrir `http://localhost:5173`.
 2. Mode mòbil (375 × 812): cap desbordament horitzontal; capçalera, dues targetes i botó visibles.
-3. Obrir `Nou viatge`: formulari correcte, amb etiquetes, focus i botó de tancar.
-4. `npm run build`: sense errors. Revisar consola del navegador.
-5. La lògica d'eliminació i navegació no s'ha modificat.
+3. Obrir `Nou viatge`, crear un viatge i comprovar que **el modal es tanca** i el viatge nou apareix **al principi** de la llista.
+4. Crear diversos viatges i comprovar que **les targetes es desplacen horitzontalment dins del contenidor** (`overflow-x: auto`), sense ampliar la pàgina. També es pot accedir al contenidor amb el teclat (`Tab`) i desplaçar-se amb les fletxes.
+5. `npm run build`: sense errors. Revisar consola del navegador.
+6. La lògica d'eliminació i navegació no s'ha modificat.
+
+## Correccions addicionals de la branca `s1-estilos`
+
+- `src/pages/Home.jsx`: en crear un viatge, el formulari es tanca amb `setIsViaje_FormOpen(false)`. S'utilitza l'actualització funcional de `useState` i es calcula un ID nou també quan la llista s'ha quedat buida.
+- El viatge acabat de crear s'afegeix al principi de l'array perquè es vegi immediatament al carrusel.
+- `src/index.css`: la llista és un carrusel amb `overflow-x: auto`, `overflow-y: hidden`, amplada limitada al contenidor i `scroll-snap-type` per facilitar el desplaçament.
 
 ## Pendents fora de CSS
 
 - `navigate_to` només fa `console.log` (pendent connectar a la pantalla de detall).
-- El formulari de creació no es tanca automàticament en desar; aquesta és una decisió funcional de l'equip.
 - `rango_fechas` utilitza `getDay()` per al dia inicial, cosa que pot mostrar un dia de la setmana en lloc del dia del mes.
 - La barra inferior i les pantalles d'itinerari, despeses i activitats s'implementaran en sprints posteriors.

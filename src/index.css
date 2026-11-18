@@ -113,7 +113,34 @@ img { max-width: 100%; }
 .btn-add-travel:hover { filter: brightness(1.06); box-shadow: 0 7px 16px rgba(16, 117, 152, .25); }
 .btn-add-travel:active { transform: scale(.985); }
 .btn-add-travel__plus { font-size: 27px; line-height: .8; font-weight: 400; }
-.home-container-viaje-detail { display: grid; gap: 17px; }
+/* Carrusel de viatges: scroll horitzontal només dins del contenidor,
+   sense fer créixer l'amplada o l'alçada de la pantalla quan n'afegim més. */
+.home-container-viaje-detail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 88%);
+  gap: 16px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 3px 3px 16px;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #a0cdd9 transparent;
+}
+.home-container-viaje-detail .travel-card {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+.home-container-viaje-detail:focus-visible {
+  outline: 3px solid #8cdae7;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
 
 /* 04. Targeta de viatge: foto, títol, dates i eliminació */
 .travel-card {
