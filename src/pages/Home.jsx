@@ -11,8 +11,8 @@ function Home() {
     function add_viaje(new_viaje) {
         setViajes(viajes_actuals => {
             const siguienteId = viajes_actuals.reduce((maxId, item) => Math.max(maxId, item.id), 0) + 1;
-            // El viatge nou queda visible al principi del carrusel horitzontal.
-            return [{ ...new_viaje, id: siguienteId }, ...viajes_actuals];
+            // Afegim el viatge al final de la llista vertical.
+            return [...viajes_actuals, { ...new_viaje, id: siguienteId }];
         });
         setIsViaje_FormOpen(false);
     }
@@ -51,7 +51,7 @@ function Home() {
                 <div
                     className="home-container-viaje-detail"
                     role="region"
-                    aria-label="Llista dels meus viatges, desplaçable horitzontalment"
+                    aria-label="Llista dels meus viatges, desplaçable verticalment"
                     tabIndex={0}
                 >
                     {viajes.map(viaje => (
