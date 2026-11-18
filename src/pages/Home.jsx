@@ -13,11 +13,13 @@ function Home() {
             ...viajes,
             { ...new_viaje, id: viajes[viajes.length - 1].id + 1 }
         ]);
+        setIsViaje_FormOpen(false);
     }
 
     function deleteViaje(id) {
         const nuevos_viajes = viajes.filter(viaje => viaje.id !== id);
         setViajes(nuevos_viajes);
+
     }
 
     function navigate_to(id) {
