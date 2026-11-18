@@ -9,10 +9,12 @@ function Home() {
     const [isViaje_Form_open, setIsViaje_FormOpen] = useState(false);
 
     function add_viaje(new_viaje) {
-        setViajes([
-            ...viajes,
-            { ...new_viaje, id: viajes[viajes.length - 1].id + 1 }
-        ]);
+        setViajes(viajes_actuals => {
+            const siguienteId = viajes_actuals.reduce((maxId, item) => Math.max(maxId, item.id), 0) + 1;
+            // El viatge nou queda visible al principi del carrusel horitzontal.
+            return [{ ...new_viaje, id: siguienteId }, ...viajes_actuals];
+        });
+        setIsViaje_FormOpen(false);
     }
 
     function deleteViaje(id) {
@@ -46,7 +48,12 @@ function Home() {
                     Nou viatge
                 </button>
 
-                <div className="home-container-viaje-detail" aria-label="Llista dels meus viatges">
+                <div
+                    className="home-container-viaje-detail"
+                    role="region"
+                    aria-label="Llista dels meus viatges, desplaçable horitzontalment"
+                    tabIndex={0}
+                >
                     {viajes.map(viaje => (
                         <Viaje_Card
                             key={viaje.id}
