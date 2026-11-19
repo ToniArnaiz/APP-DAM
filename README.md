@@ -1,16 +1,24 @@
-# React + Vite
+Vianda
+Tu aplicación para controlar el itinerario de tus viajes así como los gastos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Equipo
+Antonio Arnaiz (ToniArnaiz)
+Pere Balasch (perebl)
+Guillem Coll
 
-Currently, two official plugins are available:
+Funciones del Equipo
+Sprint 1
+Diseño visual y CSS : Guillem
+Documentacion, Datos y Tipos : Pere
+Desarrollo: Antonio
+Cómo arrancarla
+npm install npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Enlaces
+Trello: https://trello.com/invite/b/6afc91d41514eb496a70686d/ATTI8b69772ecb1e2006f1157d27046df1486DBC8475/app-dam
+Carpetas
+src/components: componentes reutilizables
+src/pages: una pantalla por fichero
+src/data: datos de ejemplo
+src/utils: funciones puras
+docs: modelo de datos y componentes de cada pantalla
