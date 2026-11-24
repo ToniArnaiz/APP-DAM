@@ -1,17 +1,33 @@
-import { datos_viajes } from "../data/viajes.js";
-import { useState } from "react";
+
+import {useEffect,useState} from "react";
 import { Viaje_Card } from "../components/Viaje_Card.jsx";
 import Viaje_Form from "../components/Viaje_Form.jsx";
 import profile from "../assets/profile.png";
+import {fetch_viajes_detail} from "../utils/api_fetch.js";
 
 function Home() {
-    const [viajes, setViajes] = useState(datos_viajes);
+    const [viajes, setViajes] = useState([]);
     const [isViaje_Form_open, setIsViaje_FormOpen] = useState(false);
+
+
+    useEffect(() => {
+
+        async function cargarViajes() {
+            try {
+                const data = await fetch_viajes_detail();
+                setViajes(data);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        cargarViajes();
+
+    }, []);
 
     function add_viaje(new_viaje) {
         setViajes(viajes_actuals => {
             const siguienteId = viajes_actuals.reduce((maxId, item) => Math.max(maxId, item.id), 0) + 1;
-            // Afegim el viatge al final de la llista vertical.
             return [...viajes_actuals, { ...new_viaje, id: siguienteId }];
         });
         setIsViaje_FormOpen(false);
@@ -54,14 +70,19 @@ function Home() {
                     aria-label="Llista dels meus viatges, desplaçable verticalment"
                     tabIndex={0}
                 >
-                    {viajes.map(viaje => (
-                        <Viaje_Card
-                            key={viaje.id}
-                            viaje={viaje}
-                            navigate_to={() => navigate_to(viaje.id)}
-                            delete_viaje={() => deleteViaje(viaje.id)}
-                        />
-                    ))}
+                    {viajes && viajes.length > 0
+                        ?
+                            viajes.map(viaje => (
+                                <Viaje_Card
+                                    key={viaje.id}
+                                    viaje={viaje}
+                                    navigate_to={() => navigate_to(viaje.id)}
+                                    delete_viaje={() => deleteViaje(viaje.id)}
+                                />
+                            ))
+                        :
+                            <p>No hay viajes</p>
+                    }
                 </div>
             </main>
 
