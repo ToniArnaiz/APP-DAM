@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Viaje_Form({ add_viaje, setIsViaje_FormOpen }) {
+function Home_Form({ add_viaje, setIsViaje_FormOpen }) {
     const [viaje, setViaje] = useState({
         id: -1,
         destino: "",
@@ -86,4 +86,4 @@ function Viaje_Form({ add_viaje, setIsViaje_FormOpen }) {
     );
 }
 
-export default Viaje_Form;
+export default Home_Form;

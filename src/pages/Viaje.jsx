@@ -1,7 +1,8 @@
 
 
 
-export function Viaje_Detail()  {
+export function Viaje()  {
+
 
 
     return (

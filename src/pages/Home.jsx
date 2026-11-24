@@ -1,7 +1,7 @@
 import { datos_viajes } from "../data/viajes.js";
 import { useState } from "react";
-import { Viaje_Card } from "../components/Viaje_Card.jsx";
-import Viaje_Form from "../components/Viaje_Form.jsx";
+import { Home_Card } from "../components/Home_Card.jsx";
+import Home_Form from "../components/Home_Form.jsx";
 import profile from "../assets/profile.png";
 
 function Home() {
@@ -55,7 +55,7 @@ function Home() {
                     tabIndex={0}
                 >
                     {viajes.map(viaje => (
-                        <Viaje_Card
+                        <Home_Card
                             key={viaje.id}
                             viaje={viaje}
                             navigate_to={() => navigate_to(viaje.id)}
@@ -66,7 +66,7 @@ function Home() {
             </main>
 
             {isViaje_Form_open && (
-                <Viaje_Form
+                <Home_Form
                     add_viaje={add_viaje}
                     setIsViaje_FormOpen={setIsViaje_FormOpen}
                 />

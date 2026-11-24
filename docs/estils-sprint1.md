@@ -4,7 +4,7 @@
 
 - `src/index.css`: estil mobile-first, variables, reset, capçalera, targetes, botó principal, formulari modal i classes base dels pròxims sprints.
 - `index.html`: títol Vianda i idioma `ca` (l'app es presenta en català); font Inter.
-- `Home.jsx`, `Viaje_Card.jsx`, `Viaje_Form.jsx`: únicament ajustos d'estructura de presentació i `className` necessaris per aplicar els estils; no es canvia la gestió d'estat ni les dades.
+- `Home.jsx`, `Home_Card.jsx`, `Home_Form.jsx`: únicament ajustos d'estructura de presentació i `className` necessaris per aplicar els estils; no es canvia la gestió d'estat ni les dades.
 - `App.jsx`: retirada de l'import de `App.css` buit, perquè el professor demana CSS a `index.css`.
 - `src/assets/covers/`: dues il·lustracions locals per a les targetes dels viatges de mostra, sense necessitat d'APIs ni d'imatges remotes.
 
