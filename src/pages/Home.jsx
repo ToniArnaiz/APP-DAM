@@ -1,46 +1,20 @@
-
-import {useEffect,useState} from "react";
+import Home_Filtro from "../components/Home_Filtro.jsx";
 import { Viaje_Card } from "../components/Viaje_Card.jsx";
 import Viaje_Form from "../components/Viaje_Form.jsx";
 import profile from "../assets/profile.png";
-import {fetch_viajes_detail} from "../utils/api_fetch.js";
+import useHome from "../hooks/useHome.js";
 
 function Home() {
-    const [viajes, setViajes] = useState([]);
-    const [isViaje_Form_open, setIsViaje_FormOpen] = useState(false);
-
-
-    useEffect(() => {
-
-        async function cargarViajes() {
-            try {
-                const data = await fetch_viajes_detail();
-                setViajes(data);
-            } catch (e) {
-                console.error(e);
-            }
-        }
-
-        cargarViajes();
-
-    }, []);
-
-    function add_viaje(new_viaje) {
-        setViajes(viajes_actuals => {
-            const siguienteId = viajes_actuals.reduce((maxId, item) => Math.max(maxId, item.id), 0) + 1;
-            return [...viajes_actuals, { ...new_viaje, id: siguienteId }];
-        });
-        setIsViaje_FormOpen(false);
-    }
-
-    function deleteViaje(id) {
-        const nuevos_viajes = viajes.filter(viaje => viaje.id !== id);
-        setViajes(nuevos_viajes);
-    }
-
-    function navigate_to(id) {
-        console.log(id);
-    }
+    const {
+        viajesFiltrados,
+        filtro,
+        setFiltro,
+        isViaje_Form_open,
+        setIsViaje_FormOpen,
+        add_viaje,
+        deleteViaje,
+        navigate_to,
+    } = useHome();
 
     return (
         <div className="app-shell">
@@ -64,15 +38,17 @@ function Home() {
                     Nou viatge
                 </button>
 
+                <Home_Filtro filtro={filtro} onFiltroChange={setFiltro} />
+
                 <div
                     className="home-container-viaje-detail"
                     role="region"
                     aria-label="Llista dels meus viatges, desplaçable verticalment"
                     tabIndex={0}
                 >
-                    {viajes && viajes.length > 0
+                    {viajesFiltrados.length > 0
                         ?
-                            viajes.map(viaje => (
+                            viajesFiltrados.map(viaje => (
                                 <Viaje_Card
                                     key={viaje.id}
                                     viaje={viaje}
