@@ -17,7 +17,7 @@ function Home() {
     } = useHome();
 
     return (
-        <div className="app-shell">
+        <>
             <header className="home-header">
                 <span className="brand-name">Vianda<span className="brand-dot">.</span></span>
                 <img src={profile} alt="Imatge de perfil" className="profile-image" />
@@ -68,7 +68,7 @@ function Home() {
                     setIsViaje_FormOpen={setIsViaje_FormOpen}
                 />
             )}
-        </div>
+        </>
     );
 }
 
