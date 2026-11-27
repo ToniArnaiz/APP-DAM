@@ -3,31 +3,22 @@ import { useState } from "react";
 import { Home_Card } from "../components/Home_Card.jsx";
 import Home_Form from "../components/Home_Form.jsx";
 import profile from "../assets/profile.png";
+import useHome from "../hooks/useHome.js";
 
 function Home() {
-    const [viajes, setViajes] = useState(datos_viajes);
-    const [isViaje_Form_open, setIsViaje_FormOpen] = useState(false);
-
-    function add_viaje(new_viaje) {
-        setViajes(viajes_actuals => {
-            const siguienteId = viajes_actuals.reduce((maxId, item) => Math.max(maxId, item.id), 0) + 1;
-            // Afegim el viatge al final de la llista vertical.
-            return [...viajes_actuals, { ...new_viaje, id: siguienteId }];
-        });
-        setIsViaje_FormOpen(false);
-    }
-
-    function deleteViaje(id) {
-        const nuevos_viajes = viajes.filter(viaje => viaje.id !== id);
-        setViajes(nuevos_viajes);
-    }
-
-    function navigate_to(id) {
-        console.log(id);
-    }
+    const {
+        viajesFiltrados,
+        filtro,
+        setFiltro,
+        isViaje_Form_open,
+        setIsViaje_FormOpen,
+        add_viaje,
+        deleteViaje,
+        navigate_to,
+    } = useHome();
 
     return (
-        <div className="app-shell">
+        <>
             <header className="home-header">
                 <span className="brand-name">Vianda<span className="brand-dot">.</span></span>
                 <img src={profile} alt="Imatge de perfil" className="profile-image" />
@@ -48,20 +39,27 @@ function Home() {
                     Nou viatge
                 </button>
 
+                <Home_Filtro filtro={filtro} onFiltroChange={setFiltro} />
+
                 <div
                     className="home-container-viaje-detail"
                     role="region"
                     aria-label="Llista dels meus viatges, desplaçable verticalment"
                     tabIndex={0}
                 >
-                    {viajes.map(viaje => (
-                        <Home_Card
-                            key={viaje.id}
-                            viaje={viaje}
-                            navigate_to={() => navigate_to(viaje.id)}
-                            delete_viaje={() => deleteViaje(viaje.id)}
-                        />
-                    ))}
+                    {viajesFiltrados.length > 0
+                        ?
+                            viajesFiltrados.map(viaje => (
+                                <Viaje_Card
+                                    key={viaje.id}
+                                    viaje={viaje}
+                                    navigate_to={() => navigate_to(viaje.id)}
+                                    delete_viaje={() => deleteViaje(viaje.id)}
+                                />
+                            ))
+                        :
+                            <p>No hay viajes</p>
+                    }
                 </div>
             </main>
 
@@ -71,7 +69,7 @@ function Home() {
                     setIsViaje_FormOpen={setIsViaje_FormOpen}
                 />
             )}
-        </div>
+        </>
     );
 }
 
