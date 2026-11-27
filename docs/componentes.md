@@ -5,8 +5,8 @@ Documentación de los componentes utilizados en la aplicación.
 | Nombre                    | Nivel    |
 | ------------------------- | -------- |
 | pages/Home.jsx            | Page     |
-| components/Viaje_Card.jsx | Molécula |
-| components/Viaje_Form.jsx | Molécula |
+| components/Home_Card.jsx | Molécula |
+| components/Home_Form.jsx | Molécula |
 | data/viajes.js            | Datos    |
 
 ## Descripción
@@ -15,11 +15,11 @@ Documentación de los componentes utilizados en la aplicación.
 
 Pantalla principal de la aplicación TravelCheck.
 
-### Viaje_Card.jsx
+### Home_Card.jsx
 
 Componente reutilizable que representa una tarjeta de viaje.
 
-### Viaje_Form.jsx
+### Home_Form.jsx
 
 Componente utilizado para el formulario de viajes.
 

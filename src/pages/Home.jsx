@@ -1,6 +1,7 @@
-import Home_Filtro from "../components/Home_Filtro.jsx";
-import { Viaje_Card } from "../components/Viaje_Card.jsx";
-import Viaje_Form from "../components/Viaje_Form.jsx";
+import { datos_viajes } from "../data/viajes.js";
+import { useState } from "react";
+import { Home_Card } from "../components/Home_Card.jsx";
+import Home_Form from "../components/Home_Form.jsx";
 import profile from "../assets/profile.png";
 import useHome from "../hooks/useHome.js";
 
@@ -63,7 +64,7 @@ function Home() {
             </main>
 
             {isViaje_Form_open && (
-                <Viaje_Form
+                <Home_Form
                     add_viaje={add_viaje}
                     setIsViaje_FormOpen={setIsViaje_FormOpen}
                 />

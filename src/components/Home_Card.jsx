@@ -1,6 +1,6 @@
 import { rango_fechas } from "../utils/rango_fechas.js";
 
-export function Viaje_Card({ viaje, navigate_to, delete_viaje }) {
+export function Home_Card({ viaje, navigate_to, delete_viaje }) {
     return (
         <article className="travel-card" data-destination={viaje.destino}>
             <button
