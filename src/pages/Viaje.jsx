@@ -20,11 +20,19 @@ export function Viaje() {
                 {viaje && (
                     <>
                         <nav aria-label="Seccions del viatge">
-                            <Viaje_Button titulo="Activitats" url="actividades" />
+                            <Viaje_Button
+                                titulo="Activitats"
+                                url="actividades"
+                                state={{ actividades: viaje.actividades }}
+                            />
                             <Viaje_Button titulo="Itinerari" url="itinerario" />
                             <Viaje_Button titulo="Despeses" url="gastos" />
                         </nav>
-                        <Viaje_Resum />
+                        <Viaje_Resum
+                            actividades={viaje.actividades}
+                            gastos={viaje.gastos}
+                            presupuesto={viaje.presupuesto}
+                        />
                     </>
                 )}
             </main>
