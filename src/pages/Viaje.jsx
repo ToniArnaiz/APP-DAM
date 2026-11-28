@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Viaje_Header from "../components/Viaje_Header.jsx";
 import Viaje_Button from "../components/Viaje_Button.jsx";
 import Viaje_Resum from "../components/Viaje_Resum.jsx";
@@ -7,7 +7,9 @@ import { fetch_viaje_by_id } from "../utils/api_fetch.js";
 
 export function Viaje() {
     const { id } = useParams();
+    const { state } = useLocation();
     const [viaje, setViaje] = useState();
+    const actividades = state?.actividades ?? viaje?.actividades ?? [];
 
     useEffect(() => {
         let activo = true;
@@ -42,13 +44,13 @@ export function Viaje() {
                             <Viaje_Button
                                 titulo="Activitats"
                                 url="actividades"
-                                state={{ actividades: viaje.actividades, destino: viaje.destino }}
+                                state={{ actividades, destino: viaje.destino }}
                             />
                             <Viaje_Button titulo="Itinerari" url="itinerario" />
                             <Viaje_Button titulo="Despeses" url="gastos" />
                         </nav>
                         <Viaje_Resum
-                            actividades={viaje.actividades}
+                            actividades={actividades}
                             gastos={viaje.gastos}
                             presupuesto={viaje.presupuesto}
                         />
