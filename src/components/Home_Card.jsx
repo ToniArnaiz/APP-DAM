@@ -1,11 +1,11 @@
+import { Link } from "react-router-dom";
 import { rango_fechas } from "../utils/rango_fechas.js";
 
-export function Home_Card({ viaje, navigate_to, delete_viaje }) {
+export function Home_Card({ viaje, delete_viaje }) {
     return (
         <article className="travel-card" data-destination={viaje.destino}>
-            <button
-                type="button"
-                onClick={navigate_to}
+            <Link
+                to={`/viaje/${viaje.id}`}
                 className="travel-card__link"
                 aria-label={`Veure el viatge: ${viaje.titulo}`}
             >
@@ -16,7 +16,7 @@ export function Home_Card({ viaje, navigate_to, delete_viaje }) {
                     <span className="travel-card__title">{viaje.titulo}</span>
                     <span className="travel-card__dates">{rango_fechas(viaje)}</span>
                 </span>
-            </button>
+            </Link>
             <button
                 type="button"
                 onClick={delete_viaje}

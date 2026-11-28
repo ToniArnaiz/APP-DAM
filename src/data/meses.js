@@ -1,16 +1,16 @@
 
 
 export const meses = {
-    0: "Ene",
-    1: "Feb",
-    2: "Mar",
-    3: "Abr",
-    4: "May",
-    5: "Jun",
-    6: "Jul",
-    7: "Ago",
-    8: "Sep",
-    9: "Oct",
-    10: "Nov",
-    11: "Dic",
+    0: "Enero",
+    1: "Febrero",
+    2: "Marzo",
+    3: "Abril",
+    4: "Mayo",
+    5: "Junio",
+    6: "Julio",
+    7: "Agosto",
+    8: "Septiempre",
+    9: "Octubre",
+    10: "Noviembre",
+    11: "Dicciembre",
 };
