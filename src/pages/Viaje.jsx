@@ -1,34 +1,15 @@
+import Viaje_Header from "../components/Viaje_Header.jsx";
+import Viaje_Button from "../components/Viaje_Button.jsx";
+import Viaje_Resum from "../components/Viaje_Resum.jsx";
 
-
-
-export function Viaje()  {
-
-
-
+export function Viaje() {
     return (
         <>
-            <header>
-                <button>
-                    return
-                </button>
-
-                <div>
-                    {/*<h1>Titulo</h1>*/}
-                    {/*<h2>Fechas</h2>*/}
-                </div>
-            </header>
-
-            <body>
-                <div>
-                    {/* carrusel boton_action*/}
-                </div>
-                <div>
-                    <p>Resumen</p>
-                    {/* gastos*/}
-                    {/* siguinte actividad*/}
-                </div>
-            </body>
-
+            <Viaje_Header />
+            <main>
+                <Viaje_Button />
+                <Viaje_Resum />
+            </main>
         </>
-    )
+    );
 }
