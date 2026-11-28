@@ -1,9 +1,8 @@
-import { datos_viajes } from "../data/viajes.js";
-import { useState } from "react";
 import { Home_Card } from "../components/Home_Card.jsx";
 import Home_Form from "../components/Home_Form.jsx";
 import profile from "../assets/profile.png";
 import useHome from "../hooks/useHome.js";
+import Home_Filtro from "../components/Home_Filtro.jsx";
 
 function Home() {
     const {
@@ -14,7 +13,6 @@ function Home() {
         setIsViaje_FormOpen,
         add_viaje,
         deleteViaje,
-        navigate_to,
     } = useHome();
 
     return (
@@ -50,10 +48,9 @@ function Home() {
                     {viajesFiltrados.length > 0
                         ?
                             viajesFiltrados.map(viaje => (
-                                <Viaje_Card
+                                <Home_Card
                                     key={viaje.id}
                                     viaje={viaje}
-                                    navigate_to={() => navigate_to(viaje.id)}
                                     delete_viaje={() => deleteViaje(viaje.id)}
                                 />
                             ))
