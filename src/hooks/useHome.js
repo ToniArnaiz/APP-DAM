@@ -35,10 +35,6 @@ export default function useHome() {
         setViajes(nuevos_viajes);
     }
 
-    function navigate_to(id) {
-        console.log(id);
-    }
-
     const hoy = new Date();
     hoy.setHours(0, 0, 0, 0);
 
@@ -58,6 +54,5 @@ export default function useHome() {
         setIsViaje_FormOpen,
         add_viaje,
         deleteViaje,
-        navigate_to,
     };
 }

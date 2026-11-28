@@ -167,6 +167,7 @@ img { max-width: 100%; }
 .travel-card:hover { transform: translateY(-2px); box-shadow: 0 7px 18px rgba(21, 46, 63, .15); }
 .travel-card__link {
   display: block;
+  text-decoration: none;
   width: 100%;
   padding: 0;
   border: 0;
