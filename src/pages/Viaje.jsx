@@ -23,7 +23,7 @@ export function Viaje() {
                             <Viaje_Button
                                 titulo="Activitats"
                                 url="actividades"
-                                state={{ actividades: viaje.actividades }}
+                                state={{ actividades: viaje.actividades, destino: viaje.destino }}
                             />
                             <Viaje_Button titulo="Itinerari" url="itinerario" />
                             <Viaje_Button titulo="Despeses" url="gastos" />
