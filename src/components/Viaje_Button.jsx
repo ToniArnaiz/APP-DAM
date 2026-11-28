@@ -1,7 +1,9 @@
-export default function Viaje_Button() {
+import { Link } from "react-router-dom";
+
+export default function Viaje_Button({ titulo, url }) {
     return (
-        <button type="button" disabled>
-            Acció del viatge
-        </button>
+        <Link to={url}>
+            {titulo}
+        </Link>
     );
 }
